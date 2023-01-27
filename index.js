@@ -1,5 +1,5 @@
-import { Client } from 'discord.js';
-const client = new Client({ 
+const Discord = require('discord.js');
+const client = new Discord.Client({
     intents: [
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages
