@@ -10,7 +10,7 @@ module.exports =  {
             return;
         } 
         if (!message.content.startsWith(prefix)) {
-            console.log(`Le message ne contient pas le prefix(${prefix}): ${message}`);
+            console.log(`Le message ne contient pas le prefix(${prefix}): ${message.content}`);
             return;
         }
 
