@@ -19,13 +19,12 @@ process.on('uncaughtException', (err, origin) => { console.log(`UNCAUGHT_EXCEPTI
 process.on('unhandledRejection', (reason, promise) => { console.log(`UNHANDLED_REJECTION: ${reason}\n-----\n`, promise) });
 process.on('warning', (...args) => console.log(...args));
 
-mongoose.connect(process.env.DATABASE_URI, {
-    autoIndex: false, 
-    maxPoolSize: 10,
-    serverSelectionTimeoutMS: 5000,
-    socketTimeoutMS: 45000,
-    family: 4
-}).then(() => { console.log('Le client est connecté à la base de données!') })
-    .catch(err => { console.log("Erreur: "+err); });
+main().catch(err => console.log(err));
+
+async function main(){
+    mongoose.set('strictQuery', false);
+    mongoose.connect(process.env.DATABASE_URI);
+    console.log('Le client est connecté à la base de données!');
+}
 
 client.login(process.env.TOKEN);
