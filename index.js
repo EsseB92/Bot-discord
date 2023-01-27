@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
+const client = new Discord.Client({ intents: [Intents.FLAGS.GUILDS] });
 
 client.on('guildMemberAdd', member => {
   // Replace "welcome" with the name of your welcome channel
