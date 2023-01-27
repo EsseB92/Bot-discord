@@ -10,11 +10,16 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on('guildMemberAdd', member => {
-    const channel = member.guild.channels.cache.find(channel => channel.name === '💬・𝐃𝐢𝐬𝐜𝐮𝐬𝐬𝐢𝐨𝐧');
-    if (!channel) return;
-    channel.send(`Bienvenue ${member} sur notre serveur!`);
+fs.readdir("./events/", (err, files) => {
+    if (err) return console.error(err);
+    files.forEach(file => {
+      if (!file.endsWith(".js")) return;
+      const event = require(`./events/${file}`);
+      let eventName = file.split(".")[0];
+      client.on(eventName, event.bind(null, client));
+    });
 });
+
 
 client.on('message', msg => {
     if(msg.content === 'ping') {
