@@ -1,9 +1,5 @@
-client.on('guildMemberAdd', async member => {
-    try {
-        const role = member.guild.roles.cache.find(role => role.name === "Nouveau membre");
-        if (!role) return console.log("Le rôle n'existe pas");
-        await member.roles.add(role);
-    } catch (error) {
-        console.log(error);
-    }
-});
+module.exports = (client, member) => {
+    const role = member.guild.roles.cache.find(role => role.name === "Nouveau membre");
+    member.roles.add(role);
+    member.send("Bienvenue sur le serveur ! Nous t'avons attribué le rôle de 'nouveau membre'.");
+}
