@@ -5,6 +5,7 @@ const client = new Client({
         GatewayIntentBits.GuildMessages
     ] 
 });
+const fs = require('fs');
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
