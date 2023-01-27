@@ -4,6 +4,7 @@ module.exports =  {
     name: 'messageCreate',
     once: false,
     execute(client, message) {
+        console.log("test");
         if (message.author.bot) return;
         if (!message.content.startsWith(prefix)) return;
 
