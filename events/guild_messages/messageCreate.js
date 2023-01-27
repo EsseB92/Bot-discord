@@ -4,13 +4,12 @@ module.exports =  {
     name: 'messageCreate',
     once: false,
     execute(client, message) {
-        
         if (message.author.bot) {
             console.log(`Message envoyé par le bot: ${message}`);
             return;
         } 
         if (!message.content.startsWith(prefix)) {
-            console.log(`Le message ne contient pas le prefix(${prefix}): ${message.content}`);
+            console.log(`Le message ne contient pas le prefix(${prefix}): ${message}`);
             return;
         }
 
