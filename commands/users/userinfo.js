@@ -1,8 +1,9 @@
-const { EmbedBuilder } = require('discord.js');
+const { EmbedBuilder, PermissionFlagsBits, ApplicationCommandPermissionType } = require('discord.js');
 
 module.exports =  {
     name: 'userinfo',
-    type: 2,// == 'USER'
+    permissions: [PermissionFlagsBits.Administrator],
+    type: ApplicationCommandPermissionType.User,
     async runInteraction(client, interaction) {
         const member = await interaction.guild.members.fetch(interaction.targetId);
 

@@ -1,11 +1,14 @@
+const { ApplicationCommandOptionType, PermissionFlagsBits } = require("discord.js");
+
 module.exports =  {
     name: 'emit',
+    permissions: [PermissionFlagsBits.Administrator],
     description: 'Emettre un évènement au choix!',
     options: [
         {
             name: "event",
             description: "Choisir un évènement à émettre",
-            type: 3,
+            type: ApplicationCommandOptionType.String,
             required: true,
             choices: [
                 {

@@ -1,7 +1,8 @@
-const { EmbedBuilder } = require('discord.js');
+const { EmbedBuilder, PermissionFlagsBits } = require('discord.js');
 
 module.exports =  {
     name: 'poll',
+    permissions: [PermissionFlagsBits.Administrator],
     description: 'Poster votre propre sondage!',
     async runInteraction(client, interaction) {
         const pollTitle = interaction.options.getString('title');
