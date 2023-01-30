@@ -1,11 +1,11 @@
-module.exports =  {
-    name: 'ready',
-    once: true,
-    async execute(client) {
-        console.log('Le bot est prêt');
+import * as Logger from '../../utils/Logger.js';
 
-        // Instantané  différent de Global (dure environ 1h)
-        const devGuild = await client.guilds.cache.get('1068467214027604019');
-        devGuild.commands.set(client.commands.map(cmd => cmd));
-    }
+export const name = 'ready';
+export const once = true;
+export async function execute(client) {
+    Logger.client('- Prêt à être utilisé');
+
+    // Instantané  différent de Global (dure environ 1h)
+    const devGuild = await client.guilds.cache.get('1068467214027604019');
+    devGuild.commands.set(client.commands.map(cmd => cmd));
 }
