@@ -2,8 +2,11 @@ import { EmbedBuilder, PermissionFlagsBits } from 'discord.js';
 
 export const name = 'ping';
 export const category = 'utils';
-export const permissions = [PermissionFlagsBits.Administrator, PermissionFlagsBits.KickMembers];
-export const description = 'Commande ping!';
+export const permissions = [PermissionFlagsBits.SendMessages];
+export const ownerOnly = false;
+export const usage = 'ping';
+export const examples = ['ping'];
+export const description = "Renvoie la latence du bot et de l'API";
 export async function runInteraction(client, interaction) {
     const tryPong = await interaction.reply({ content: "On essaye de pong ... un instant!", fetchReply: true });
 

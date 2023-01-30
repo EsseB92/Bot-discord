@@ -2,25 +2,28 @@ import { EmbedBuilder, PermissionFlagsBits, ApplicationCommandOptionType } from 
 
 export const name = 'poll';
 export const category = 'utils';
-export const permissions = [PermissionFlagsBits.Administrator];
+export const permissions = [PermissionFlagsBits.SendMessages];
+export const ownerOnly = false;
+export const usage = 'poll [titre] [contenu]';
+export const examples = ['poll \`titre:\`Heure \`contenu:\`Quelle heure est-il?'];
 export const description = 'Poster votre propre sondage!';
 export const options = [
     {
-        name: 'title',
+        name: 'titre',
         description: 'Taper le titre de votre sondage',
         type: ApplicationCommandOptionType.String,
         required: true,
     },
     {
-        name: 'content',
-        description: 'Taper la question de votre sondage',
+        name: 'contenu',
+        description: 'Taper le contenu de votre sondage',
         type: ApplicationCommandOptionType.String,
         required: true,
     }
 ];
 export async function runInteraction(client, interaction) {
-    const pollTitle = interaction.options.getString('title');
-    const pollContent = interaction.options.getString('content');
+    const pollTitle = interaction.options.getString('titre');
+    const pollContent = interaction.options.getString('contenu');
 
     const embed = new EmbedBuilder()
         .setTitle(pollTitle)

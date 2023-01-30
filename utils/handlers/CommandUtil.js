@@ -19,6 +19,12 @@ export default async (client) => {
 
             if(!promise.permissions) return Logger.warn(`Commande non chargée: Il faut ajouter une/des permissions à votre commande\n                   Fichier -> ${cmdFile}`);
 
+            if(promise.ownerOnly == undefined) return Logger.warn(`Commande non chargée: Il faut indiquer si la commande est ownerOnly\n                   Fichier -> ${cmdFile}`);
+
+            if(!promise.usage) return Logger.warn(`Commande non chargée: Il faut ajouter l'usage à votre commande\n                   Fichier -> ${cmdFile}`);
+
+            if(!promise.examples) return Logger.warn(`Commande non chargée: Il faut ajouter un/des exemples à votre commande\n                   Fichier -> ${cmdFile}`);
+
             new PermissionsBitField(promise.permissions).toArray().forEach(permission => {
                 if(!permissionList.includes(permission)) {
                     return Logger.typo(`Commande non chargée: erreur de typo sur la permission ${permission}\n                   Fichier -> ${cmdFile}`);

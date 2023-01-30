@@ -2,11 +2,14 @@ import { ApplicationCommandOptionType, PermissionFlagsBits } from "discord.js";
 
 export const name = 'emit';
 export const category = 'admin';
-export const description = 'Emettre un évènement au choix!';
 export const permissions = [PermissionFlagsBits.Administrator];
+export const ownerOnly = true;
+export const usage = 'emit [évènement]';
+export const examples = ['emit \`évènement:\`guildCreate', 'emit guildMemberAdd'];
+export const description = 'Emettre un évènement de votre choix!';
 export const options = [
     {
-        name: "event",
+        name: "évènement",
         description: "Choisir un évènement à émettre",
         type: ApplicationCommandOptionType.String,
         required: true,
@@ -27,7 +30,7 @@ export const options = [
     },
 ];
 export function runInteraction(client, interaction) {
-    const eventChoices = interaction.options.getString('event');
+    const eventChoices = interaction.options.getString('évènement');
 
     if (eventChoices == 'guildMemberAdd') {
         client.emit('guildMemberAdd', interaction.member);
