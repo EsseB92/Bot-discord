@@ -6,17 +6,17 @@ export const permissions = [PermissionFlagsBits.SendMessages];
 export const ownerOnly = false;
 export const usage = 'poll [titre] [contenu]';
 export const examples = ['poll \`titre:\`Heure \`contenu:\`Quelle heure est-il?'];
-export const description = 'Poster votre propre sondage!';
+export const description = 'Poster votre propre sondage';
 export const options = [
     {
         name: 'titre',
-        description: 'Taper le titre de votre sondage',
+        description: 'Quel est le titre de votre sondage?',
         type: ApplicationCommandOptionType.String,
         required: true,
     },
     {
         name: 'contenu',
-        description: 'Taper le contenu de votre sondage',
+        description: 'Quel est le contenu de votre sondage?',
         type: ApplicationCommandOptionType.String,
         required: true,
     }

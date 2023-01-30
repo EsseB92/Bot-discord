@@ -10,7 +10,7 @@ export const description = 'Emettre un évènement de votre choix!';
 export const options = [
     {
         name: "évènement",
-        description: "Choisir un évènement à émettre",
+        description: "Quel évènement souhaitez-vous émettre?",
         type: ApplicationCommandOptionType.String,
         required: true,
         choices: [

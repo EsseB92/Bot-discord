@@ -16,7 +16,7 @@ export const description = 'Renvoie une liste de commandes filtrée par catégor
 export const options = [
     {
         name: 'commande',
-        description: 'Taper le nom de votre commande',
+        description: "Sur quelles commandes voulez-vous de l'aide?",
         type: ApplicationCommandOptionType.String,
         required: false
     }
