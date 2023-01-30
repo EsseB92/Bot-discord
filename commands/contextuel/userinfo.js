@@ -1,8 +1,11 @@
 import { EmbedBuilder, PermissionFlagsBits, ApplicationCommandPermissionType } from 'discord.js';
 
 export const name = 'userinfo';
-export const category = 'users';
-export const permissions = [PermissionFlagsBits.Administrator];
+export const category = 'contextuel';
+export const permissions = [PermissionFlagsBits.SendMessages];
+export const ownerOnly = false;
+export const usage = 'Utiliser le menu contextuelle de Discord';
+export const examples = ['Utiliser le menu contextuelle de Discord'];
 export const type = ApplicationCommandPermissionType.User;
 export async function runInteraction(client, interaction) {
     const member = await interaction.guild.members.fetch(interaction.targetId);
