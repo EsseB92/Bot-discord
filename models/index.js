@@ -1,3 +1,1 @@
-module.exports = {
-    Guild: require('./guild')
-};
+export const Guild = import('./guild.js');

@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
+import { Schema, model } from 'mongoose';
 
-const guildSchema = mongoose.Schema({
+const guildSchema = Schema({
     id: String,
     logChannel: { 'type': String, 'default': '1068560374711980032' },
 });
 
-module.exports = mongoose.model('Guild', guildSchema);
+export default model('Guild', guildSchema);
