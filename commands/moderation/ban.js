@@ -9,7 +9,7 @@ export const examples = ['ban \`membre:\`@SB92270 \`raison:\`Spamming'];
 export const description = 'Bannir(ban) un membre du serveur';
 export const options = [
     {
-        name: "cible",
+        name: "membre",
         description: "Quel membre du serveur souhaitez-vous bannir?",
         type: ApplicationCommandOptionType.User,
         required: true,
@@ -22,11 +22,14 @@ export const options = [
     }
 ];
 export async function runInteraction(client, interaction) {
-    const target = interaction.options.getMember('cible');
+    const target = interaction.options.getMember('membre');
     const reason = interaction.options.getString('raison');
 
-    if(!target.bannable) return interaction.reply({ content: `Le membre ${target} ne peut pas être bannir(ban) du serveur`, ephemeral: true });
+    //console.log(target);
 
-    target.ban({ reason });
-    interaction.reply({ content: `Le membre ${target} a été banni(ban)`, ephemeral: true })
+    if(!target.bannable) return interaction.reply({ content: `Le membre ${target} ne peut pas être banni(ban) du serveur`, ephemeral: true });
+
+    target.ban({ deleteMessageSeconds: 60 * 60 * 24 * 7, reason : reason });
+         
+    interaction.reply({ content: `Le membre ${target} a été banni(ban)`, ephemeral: true });
 }
